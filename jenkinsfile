@@ -1,0 +1,25 @@
+pipeline {
+agent any    
+stages {
+    stage('Initialize') { 
+         steps {
+             sh '/usr/bin/terraform init'
+            }
+        }
+     stage('Format') { 
+         steps {
+             sh '/usr/bin/terraform fmt'
+            }
+        }
+     stage('plan') { 
+            steps {
+                sh '/usr/bin/terraform plan'
+            }
+      stage('apply') { 
+            steps {
+                sh '/usr/bin/terraform apply'
+            }
+
+        }
+    }
+}
